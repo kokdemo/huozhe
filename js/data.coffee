@@ -11,7 +11,7 @@ define [], ->
           name: "婴儿"
         ,
           level: 2
-          name: "小孩儿"
+          name: "少年"
         ,
           level: 3
           name: "青年"
@@ -24,7 +24,7 @@ define [], ->
       ]
       problems: [
           level: [0]
-          title: "什么都没有"
+          title: "虚无"
           dismiss: ["希望"]
           gain: [
               name: "希望"
@@ -32,59 +32,85 @@ define [], ->
           time: 30
         ,
           level: [0]
-          title: "你没有生命"
+          title: "呱呱坠地"
           require: ["希望"]
           dismiss: ["生命"]
           gain: [
               name: "生命"
+            ,
+              name: "时间"
+              number: 5
           ]
           growth: true
           time: 30
         ,
-          level: [1..4]
-          title: "你需要学习"
+          level: [2..4]
+          title: "学习知识"
+          take: [
+              name: "时间"
+              number: 1
+          ]
           gain: [
               name: "知识"
           ]
           time: 60
         ,
-          level: [1..4]
-          title: "你需要玩耍"
+          level: [1..2]
+          title: "愉快玩耍"
+          take: [
+              name: "时间"
+              number: 1
+          ]
           gain: [
-              name: "记忆"
+              name: "回忆"
           ]
           time: 30
         ,
           level: [1]
-          title: "你是一个婴儿"
+          title: "青葱少年"
           take: [
-              name: "记忆"
+              name: "回忆"
               number: 5
+          ]
+          gain: [
+              name: "时间"
+              number: 15
           ]
           growth: true
           time: 60
         ,
           level: [2]
-          title: "你是一个小孩儿"
+          title: "走上社会"
           take: [
               name: "知识"
-              number: 5
+              number: 2
             ,
-              name: "经历"
+              name: "朋友"
               number: 3
+            ,
+              name: "回忆"
+              number: 3
+          ]
+          gain: [
+              name: "时间"
+              number: 12
           ]
           growth: true
           time: 60
         ,
           level: [2..4]
-          title: "你需要朋友"
+          title: "结交朋友"
+          take: [
+              name: "时间"
+              number: 1
+          ]
           gain: [
               name: "朋友"
           ]
           time: 20
         ,
           level: [2..4]
-          title: "你厌倦了朋友"
+          title: "分辨朋友"
           require: ["朋友"]
           take: [
               name: "朋友"
@@ -95,7 +121,7 @@ define [], ->
           time: 10
         ,
           level: [3]
-          title: "你是一个年轻人"
+          title: "步入中年"
           take: [
               name: "经历"
               number: 5
@@ -106,22 +132,36 @@ define [], ->
               name: "破碎的心"
               number: 2
           ]
+          gain: [
+              name: "时间"
+              number: 20
+          ]
           growth: true
           time: 60
         ,
           level: [3..4]
-          title: "你需要爱人"
+          title: "恋爱"
+          require: ["朋友"]
           dismiss: ["爱人", "家庭"]
+          take: [
+              name: "时间"
+              number: 1
+          ]
           gain: [
               name: "爱人"
           ]
           time: 40
         ,
           level: [3..4]
-          title: "爱人离开了你"
+          title: "分手"
           require: ["爱人"]
+          dismiss: ["爱人", "家庭"]
           take: [
               name: "爱人"
+              number: 1
+              ,
+              name: "时间"
+              number: 1
           ]
           gain: [
               name: "破碎的心"
@@ -129,7 +169,11 @@ define [], ->
           time: 20
         ,
           level: [3..4]
-          title: "你需要工作"
+          title: "工作"
+          take: [
+              name: "时间"
+              number: 1
+          ]
           gain: [
               name: "压力"
             ,
@@ -138,15 +182,17 @@ define [], ->
           time: 30
         ,
           level: [3..5]
-          title: "你需要放松"
+          title: "解放压力"
           require: ["压力"]
           take: [
               name: "压力"
+            ,
+              name: "时间"
           ]
           time: 30
         ,
           level: [4]
-          title: "你是一个中年人"
+          title: "老去"
           take: [
               name: "经历"
               number: 5
@@ -157,11 +203,15 @@ define [], ->
               name: "朋友"
               number: 5
           ]
+          gain: [
+              name: "时间"
+              number: 15
+          ]
           growth: true
           time: 60
         ,
-          level: [4]
-          title: "你需要结婚成家"
+          level: [3..4]
+          title: "结婚"
           require: ["爱人"]
           dismiss: ["家庭"]
           gain: [
@@ -170,10 +220,13 @@ define [], ->
           time: 60
         ,
           level: [3..4]
-          title: "你需要换一个更好的工作"
+          title: "事业进步"
           take: [
-              name: "知识",
+              name: "知识"
               number: 2
+            ,
+              name: "时间"
+              number: 1
           ]
           gain: [
               name: "经历"
@@ -185,7 +238,7 @@ define [], ->
           time: 60
         ,
           level: [3..4]
-          title: "你需要买更多东西"
+          title: "消费"
           take: [
               name: "金钱"
           ]
@@ -195,31 +248,62 @@ define [], ->
           time: 20
         ,
           level: [5]
-          title: "你疾病缠身"
+          title: "医治疾病"
           take: [
               name: "金钱"
               number: 3
           ]
+          gain: [
+              name: "时间"
+              number: 1
+          ]
           time: 60
         ,
           level: [5]
-          title: "你感到孤独"
+          title: "见见老友"
           take: [
               name: "朋友"
               number: 2
+            ,
+              name: "时间"
+              number: 1
+          ]
+          gain: [
+              name: "幸福"
           ]
           time: 60
         ,
           level: [5]
-          title: "你感到无聊"
+          title: "回忆往事"
           take: [
-              name: "记忆"
+              name: "回忆"
               number: 2
+            ,
+              name: "时间"
+              number: 1
+          ]
+          gain: [
+              name: "幸福"
           ]
           time: 60
         ,
           level: [5]
-          title: "你在逐渐死去"
+          title: "微笑着离开"
+          require: ["幸福"]
+          dismiss: ["压力"]
+          take: [
+              name: "希望"
+            ,
+              name: "生命"
+            ,
+              name: "幸福"
+              number: 5
+          ]
+          growth: true
+          time: 600
+        ,
+          level: [5]
+          title: "痛苦的离开"
           take: [
               name: "希望"
             ,
@@ -229,7 +313,7 @@ define [], ->
           time: 600
         ,
           level: [6]
-          title: "你死了"
+          title: "尘归尘，土归土"
           take: [
               name: "你拥有的一切"
           ]

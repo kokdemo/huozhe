@@ -5,31 +5,35 @@ html
     meta(name='format-detection', content='telephone=no')
     meta(name='viewport', content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi')
     link(rel='stylesheet', type='text/css', href='css/style.css')
-    title 麻烦
+    title 活着
   body
     #app
       header
-        h1 麻烦
+        h1 活着
       .container
-        .problems
-          .one(v-repeat="problems | levelFilter | requireFilter | orderBy 'growth' -1")
-            button.btn(v-available="take | solveAvailability counting", v-class="counting: counting", v-on="click: solve($data)")
-              .text 解决
+        div
+          .problems
+
+            button.btn(v-repeat="problems | levelFilter | requireFilter | orderBy 'growth' -1"  v-available="take | solveAvailability counting", v-class="counting: counting", v-on="click: solve($data)")
+              .title {{title}}
               .percent {{percent | percentage}}
-              .progress(v-style="width: percent | percentage")
-            .title {{title}}
-            span.take(v-repeat="take") -{{number | defaultOne}} {{name}}
-            span.gain(v-repeat="gain") +{{number | defaultOne}} {{name}}
-        .goods
-          h4 你拥有：
-          .one(v-repeat="player.goods")
-            span.name {{name}}
-            span.number(v-show="number > 1") &times; {{number}}
-          .nothing(v-show="!player.goods.length") 什么都没有
+              .progress(v-style="width: percent | percentage" )
+              span.take(v-repeat="take") -{{number | defaultOne}} {{name}}
+              span.gain(v-repeat="gain") +{{number | defaultOne}} {{name}}
+        hr
+        div.block
+          .goods
+            h4 你拥有：
+            .one(v-repeat="player.goods")
+              span.name {{name}}
+              span.number(v-show="number > 1") &times; {{number}}
+            .nothing(v-show="!player.goods.length") 什么都没有
     footer
       p.container Created by
         a(href="https://github.com/unstop")  @unstop
-        | . Based on
+        | , Change by
+        a(href="https://github.com/kokdemo") @kokdemo.
+        | Based on
         a(href="http://game.notch.net/drowning/")  Drowning in Problems
         |  by
         a(href="https://twitter.com/notch")  @notch

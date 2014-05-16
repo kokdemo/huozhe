@@ -6,7 +6,7 @@ body{
 }
 
 .container{
-  max-width: 40rem;
+  max-width: 55rem;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -21,7 +21,11 @@ header{
   }
 }
 
-.problems .one{
+div.block{
+  display: block;
+}
+
+.problems{
   border-radius: 3px;
   background: #FFFFFF;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.20);
@@ -35,17 +39,22 @@ header{
     margin-right: 0.5em;
   }
   .gain{
-    color: #507724;
+    color: #ffff00;
   }
   .take{
     color: #CE3E50;
   }
   .btn{
+    width: 23%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 20px;
+    display: inline-block;
     cursor: pointer;
-    float: right;
-    border-radius: 2px;
+//    float: right;
+    border-radius: 10px;
     background: #69AD1E;
-    border: 1px solid #417505;
+    border: 0px solid #417505;
     color: #FFF;
     padding: 0.5em 1em;
     position: relative;
@@ -75,21 +84,22 @@ header{
   .counting{
     background: #a3a3a3;
     .percent, .progress{
+      opacity:0.6;
       display: block;
     }
     .text{
-      display: none;
+      display: block;
     }
   }
 }
 
 .goods .one{
-  display: block;
-  float: left;
+  display: inline-block;
+//  float: left;
   margin: 0 1em 0.5em 0;
   .name{
     border-radius: 3px;
-    background: #B1B1B1;
+    background: #69AD1E;
     border: 1px solid #8A8A8A;
     color: #fff;
     padding: 0.3em 0.5em;

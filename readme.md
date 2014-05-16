@@ -1,4 +1,10 @@
-# 麻烦
+# 活着
+
+### 来源
+
+这个项目是“麻烦”的修改品。
+
+https://github.com/HackPlan/mafan
 
 ### 依赖
 
